@@ -12,8 +12,8 @@ void llenarVector(int vector[], int tamaño);
 void mostrarVector(int vector[], int tamaño);
 void llenarVector2(int vector[], int tamaño);
 void jugar(int vector[], int t);
-void player1(int p1);
-void player2(int p2);
+int player1(int p1);
+int player2(int p2);
 void ganador(int p1, int p2);
 int dado();
 
@@ -35,12 +35,21 @@ void jugar(int vector[], int t)
     while(p1<t && p2<t)
     {
         p1 += dado();
-        player1(p1);
+        if(player1(p1)==-1)
+            cout<<"jugador 1 cayo en una escalera\n";
+        else if(player1(p1)==-2)
+            cout<<"jugador 1 cayo en una serpiente\n";
+
         if (p1<t){
             p1 += vector[p1];
             cout<<"el jugador 1 esta en la posicion en:"<<p1<<"\n";
         }
+        
         p2 += dado();
+        if(player2(p2)==-1)
+            cout<<"jugador 2 cayo en una escalera\n";
+        else if(player2(p2)==-2)
+            cout<<"jugador 2 cayo en una serpiente\n";
         player2(p2);
         if (p2<t) {
             p2 += vector[p2];
@@ -87,22 +96,33 @@ void llenarVector2(int vector[], int tamaño)
     vector[32]= -10;
     vector[84]= -8;
 }
-void player1(int p1)
+int player1(int p1)
 {
-    if (p1==3 || p1==20 || p1==40)
-        cout<<"jugador uno cayo en una escalera!\n";
-     
-    else if(p1==37 || p1==81 || p1==63)
-        cout<<"jugador uno cayo en una serpiente!\n";
-
-}
-void player2(int p2)
-{
-    if (p2==3 || p2==20 || p2==40)
-        cout<<"jugador dos cayo en una escalera!\n";
+    int escaleras[10]={3,7,10,20,37,51,63,87,34,40};
+    int ser[10]={60,43,98,69,35,43,49,9,32,84};
+    for (int i=0; i<10; i++)
+        if (p1==escaleras[i])
+            return -1;
     
-    else if(p2==37 || p2==81 || p2==63)
-        cout<<"jugador dos cayo en una serpiente!\n";
+    for (int j=0; j<10; j++)
+        if (p1==ser[j])
+            return -2;
+    
+    return 0;
+}
+int player2(int p2)
+{
+    int escaleras[10]={3,7,10,20,37,51,63,87,34,40};
+    int ser[10]={60,43,98,69,35,43,49,9,32,84};
+    for (int i=0; i<10; i++)
+        if (p2==escaleras[i])
+            return -1;
+    
+    for (int j=0; j<10; j++)
+        if (p2==ser[j])
+            return -2;
+    
+    return 0;
 }
 void mostrarVector(int vecto[],int tamaño)
 {
