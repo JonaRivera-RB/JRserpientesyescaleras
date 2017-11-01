@@ -66,12 +66,26 @@ void llenarVector(int vector[], int tamaño)
 void llenarVector2(int vector[], int tamaño)
 {
     vector[3] = +8;
-    vector[20]= +11;
+    vector[7]= +11;
+    vector[10]= +9;
+    vector[20]= +3;
+    vector[37]= +10;
+    vector[51]= +8;
+    vector[63]= +2;
+    vector[87] = +8;
+    vector[34]= +11;
     vector[40]= +9;
-    vector[60]= +3;
-    vector[37]= -10;
-    vector[81]= -8;
-    vector[63]= -2;
+    
+    vector[60]= -3;
+    vector[43]= -10;
+    vector[98]= -8;
+    vector[69]= -2;
+    vector[35] = -8;
+    vector[43]= -11;
+    vector[49]= -9;
+    vector[9]= -3;
+    vector[32]= -10;
+    vector[84]= -8;
 }
 void player1(int p1)
 {
