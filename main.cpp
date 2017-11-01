@@ -10,8 +10,6 @@
 #include <time.h>
 void llenarVector2(int vector[], int tamaño);
 void jugar(int vector[], int t);
-int player1(int p1);
-int player2(int p2);
 void ganador(int p1, int p2);
 int dado();
 
@@ -34,9 +32,9 @@ void jugar(int vector[], int t)
 
         if (p1<t){
             if (vector[p1]>0)
-                cout<<"el jugador uno cayo en una escalera\n";
+                cout<<p1<<"-el jugador uno cayo en una escalera\n";
             else if (vector[p1]<0)
-                cout<<"el jugador uno cayo en una escalera\n";
+                cout<<"el jugador uno cayo en una serpiente\n";
             p1 += vector[p1];
             cout<<"el jugador 1 esta en la posicion en:"<<p1<<"\n";
         }
@@ -44,9 +42,9 @@ void jugar(int vector[], int t)
         p2 += dado();
         if (p2<t) {
             if (vector[p2]>0)
-                cout<<"el jugador dos cayo en una escalera\n";
+                cout<<p2<<"-el jugador dos cayo en una escalera\n";
             else if (vector[p2]<0)
-                cout<<"el jugador dos cayo en una escalera\n";
+                cout<<"el jugador dos cayo en una serpiente\n";
             p2 += vector[p2];
             cout<<"el jugador 2 esta en la posicion en:"<<p2<<"\n";
         }
